@@ -7,7 +7,8 @@ app = Flask(__name__)
 db_password = os.environ.get("DB_PASSWORD", "default_placeholder")
 db_user = os.environ.get("DB_USER", "default_placeholder")
 
-@app.route('/')
+# SECURE: Specifying that this route ONLY accepts GET requests
+@app.route('/', methods=['GET'])
 def home():
     return "Connected to the database securely!"
 
